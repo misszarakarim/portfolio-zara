@@ -2,10 +2,48 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Button from '../components/Button.astro';
 import Projekt from "../components/Projekt.astro";
+import Mig from "../components/Mig.astro";
+import Boxe from "../components/Boxe.astro";
 ---
-
 <MainLayout title="Titel">
-   
-	<Projekt>
+  <article class="p-4">
+    <section>
+      <div class="relative flex flex-row-reverse justify-center items-center">
+       
+		<!-- Cirkle -->
+        <div class="relative ml-7">
+          <img class="absolute top-[16px] w-[100px] h-[100px] animate-pulse" src="circle.svg" alt="" style="right: -40px;">
+          <h1 class="font-scree text-[85px] relative z-10">Portfolio</h1>
+          <p class="italic relative z-10 font-sans text-[18px]">Zarish Zara Karim</p>
+
+		  <!-- Ikoner -->
+          <div class="flex flex-row w-[100px] h-[100px] space-x-3 mt-4 relative z-10">
+            <a href=""> <img src="linkedin.png" alt="www.linkedin.com/in/zarish-zara-karim"> </a>
+            <a href=""> <img src="github.png" alt="https://github.com/misszarakarim"> </a>
+            <a href="mailto: zarishdk@gmail.com"> <img src="email.png" alt=""></a>
+          </div>
+        </div>
+
+        <div>
+          <img class="w-[40px]" src="tal-linje.svg" alt="">
+        </div>
+
+        <!-- Stjerne og tekst -->
+        <div class="absolute bottom-4 right-0 text-right flex flex-col items-end space-y-2">
+          <div class="flex items-center space-x-2">
+			<img src="star.png" alt="Star 1" class="w-4 h-4 animate-pulse">
+            <p class="text-[16px] font-sans text-coral font-bold">Grafisk Designer</p>
+            <img src="star.png" alt="Star 1" class="w-4 h-4">
+			 <p class="text-[16px] font-sans text-coral font-bold">UX/UI</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Mig/>
+  <Projekt/>
+  <Boxe/>
 
 </MainLayout>
+
