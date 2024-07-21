@@ -1,1 +1,118 @@
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    function toggleProjectDetails(id) {
+      const details = document.getElementById(id);
+      const icon = document.querySelector(`[data-target="${id}"] .toggle-icon`);
 
+      if (details.classList.contains('hidden')) {
+        details.classList.remove('hidden');
+        icon.textContent = '-'; // Skift til "-"
+      } else {
+        details.classList.add('hidden');
+        icon.textContent = '+'; // Skift til "+"
+      }
+    }
+
+    const projectHeaders = document.querySelectorAll('.project-header');
+    projectHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const targetId = header.getAttribute('data-target');
+        toggleProjectDetails(targetId);
+      });
+    });
+  });
+</script>
+
+
+<body class="font-sans antialiased">
+
+<main class="">
+  <!-- Mine Projekter Section -->
+  <section class="mt-10 p-4 border">
+
+
+
+
+
+ <div class="text-right mt-12 font-sans">
+  <h2 class="text-[25px] font-bold flex items-center justify-end">
+    <!-- Star Icon -->
+    <img src="/star.png" alt="Star Icon" class="w-6 h-6 mr-2">
+    MINE PROJEKTER
+  </h2>
+</div>
+
+<!-- Underline -->
+<!-- <div class="border-b-[3px] border-black mt-2 w-[50px] rounded-full mx-auto"></div> -->
+
+<!-- Flex container for other items -->
+<div class="flex flex-row-reverse md:flex-row-reverse mt-5 items-center"></div>
+
+
+
+
+
+
+    <!-- The Korner Project -->
+    <div class="border border-black py-4 px-2 mt-4">
+  <div class="flex justify-between items-center cursor-pointer project-header" data-target="korner-details">
+    <h3 class="text-lg font-bold p-1">The Korner</h3>
+    <div class="text-lg font-bold">+</div>
+  </div>
+
+  <div class="hidden mt-4" id="korner-details">
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="flex-1">
+        <p class="mb-1"><strong>Opgaven</strong></p>
+        <p>Samarbejdsprojekt med en gruppe med det formål at re-designe hjemmesiden for The Korner, en Kpop butik. Projektet havde til formål at skabe en forbedret og mere engagerende onlineoplevelse for butikkens kunder ved at præsentere deres sortiment og brand på en ny og innovativ måde.</p>
+        <p class="mb-1 mt-6"><strong>Min rolle</strong></p>
+        <p>Fokuserede primært på kodning og udvikling af prototyper til det nye webdesign.</p>
+
+        <div class="flex space-x-2 mt-2">
+          <a href="#" class="bg-black text-white px-3 py-1 rounded">Figma</a>
+          <a href="#" class="bg-black text-white px-3 py-1 rounded">GitHub</a>
+        </div>
+
+        <div class="flex space-x-2 mt-2">
+          <span class="bg-gray-200 px-3 py-1 rounded">#HTML</span>
+          <span class="bg-gray-200 px-3 py-1 rounded">#CSS</span>
+          <span class="bg-gray-200 px-3 py-1 rounded">#Design</span>
+          <span class="bg-gray-200 px-3 py-1 rounded">#Prototype</span>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 mt-4 md:mt-0 md:w-1/3">
+        <img src="/thekorner.png" alt="The Korner project screenshot" class="w-full">
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Other Projects -->
+    <div class="border border-black py-4 px-2 mt-4">
+      <div class="flex justify-between items-center cursor-pointer project-header" data-target="cl-festival-details">
+        <h3 class="text-lg font-bold">Copenhagen Light Festival</h3>
+        <div class="text-lg font-bold">+</div>
+      </div>
+      <div class="hidden mt-4" id="cl-festival-details"></div>
+    </div>
+
+    <div class="border border-black py-4 px-2 mt-4">
+      <div class="flex justify-between items-center cursor-pointer project-header" data-target="d-cleanup-day-details">
+        <h3 class="text-lg font-bold">Digital Cleanup Day</h3>
+        <div class="text-lg font-bold">+</div>
+      </div>
+      <div class="hidden mt-4" id="d-cleanup-day-details"></div>
+    </div>
+
+    <div class="border border-black py-4 px-2 mt-4">
+      <div class="flex justify-between items-center cursor-pointer project-header" data-target="ca-akasse-details">
+        <h3 class="text-lg font-bold">CA A-kasse</h3>
+        <div class="text-lg font-bold">+</div>
+      </div>
+      <div class="hidden mt-4" id="ca-akasse-details"></div>
+    </div>
+  </section>
+</main>
+
+</body>
