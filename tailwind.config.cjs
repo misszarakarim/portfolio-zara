@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         scree: ["Sree Krushnadevaraya"],
         sans: ["Open Sans"],
+        instru: ["Instrument Serif"],
       },
     },
   },

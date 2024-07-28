@@ -5,45 +5,66 @@ import Projekt from "../components/Projekt.astro";
 import Mig from "../components/Mig.astro";
 import Boxe from "../components/Boxe.astro";
 ---
+
 <MainLayout title="Titel">
-  <article class="p-4">
-    <section>
-      <div class="relative flex flex-row-reverse justify-center items-center">
+  <body class="flex items-center justify-center h-screen bg-gray-100">
+
+
+
+	
+    <div class="text-center p-8 max-w-2xl w-full my-20">
+
+        <!-- Navn med linjer på hver side -->
+        <div class="flex items-center justify-center mb-4">
+            <div class="border-t border-black border-2 flex-grow mr-4 rounded-full"></div>
+            <h1 class="text-[20px] font-sans">Zarish Zara Karim</h1>
+            <div class="border-t border-black border-2 flex-grow ml-4 rounded-full"></div>
+        </div>
+        <!-- Portfolio titel -->
+        <div class="mb-6 mt-7">
+            <h2 class="text-6xl font-bold font-instru mb-8 italic">PORTFOLIO*</h2>
+        </div>
+
+        <!-- Ikoner med linjer på hver side -->
+        <div class="flex items-center justify-center mb-6">
+            <div class="border-t border-black border-2 flex-grow mr-4 rounded-full"></div>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-500 hover:text-gray-700">
+                    <img src="/001-linkedin.svg" alt="LinkedIn" class="w-6 h-6">
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-700">
+                    <img src="/003-github.svg" alt="GitHub" class="w-6 h-6">
+                </a>
+                <a href="mailto:zarishdk@gmail.com" class="text-gray-500 hover:text-gray-700">
+                    <img src="/002-email.svg" alt="Email" class="w-6 h-6">
+                </a>
+            </div>
+            <div class="border-t border-black border-2 flex-grow ml-4 rounded-full"></div>
+        </div>
        
-		<!-- Cirkle -->
-        <div class="relative ml-7">
-          <img class="absolute top-[16px] w-[100px] h-[100px] animate-pulse" src="/circle.svg" alt="" style="right: -40px;">
-          <h1 class="font-scree text-[85px] relative z-10">Portfolio</h1>
-          <p class="italic relative z-10 font-sans text-[18px]">Zarish Zara Karim</p>
-
-		  <!-- Ikoner -->
-          <div class="flex flex-row w-[100px] h-[100px] space-x-3 mt-4 relative z-10">
-            <a href=""> <img src="/linkedin.png" alt="www.linkedin.com/in/zarish-zara-karim"> </a>
-            <a href=""> <img src="/github.png" alt="https://github.com/misszarakarim"> </a>
-            <a href="mailto: zarishdk@gmail.com"> <img src="/email.png" alt=""></a>
-          </div>
+		<!-- Kategorier -->
+        <div class="flex justify-center space-x-4">
+            <div class="flex items-center">
+                <img src="star.png" alt="" class="w-5 h-5 mr-2">
+                <span>Grafisk Designer</span>
+            </div>
+            <div class="flex items-center">
+                  <img src="star.png" alt="" class="w-5 h-5 mr-2">
+                <span>UI/UX</span>
+            </div>
+            <div class="flex items-center">
+                   <img src="star.png" alt="" class="w-5 h-5 mr-2">
+                <span></span>
+            </div>
         </div>
-
-        <div>
-          <img class="w-[40px]" src="tal-linje.svg" alt="">
-        </div>
-
-        <!-- Stjerne og tekst -->
-        <div class="absolute bottom-4 right-0 text-right flex flex-col items-end space-y-2">
-          <div class="flex items-center space-x-2">
-			<img src="/star.png" alt="Star 1" class="w-4 h-4 animate-pulse">
-            <p class="text-[16px] font-sans text-coral font-bold">Grafisk Designer</p>
-            <img src="/star.png" alt="Star 1" class="w-4 h-4">
-			 <p class="text-[16px] font-sans text-coral font-bold">UX/UI</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </article>
+    </div>
+</body>
 
   <Mig/>
   <Projekt/>
   <Boxe/>
+
+
 
 </MainLayout>
 
