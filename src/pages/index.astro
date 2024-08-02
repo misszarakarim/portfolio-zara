@@ -8,63 +8,133 @@ import Boxe from "../components/Boxe.astro";
 
 <MainLayout title="Titel">
   <body class="flex items-center justify-center h-screen bg-gray-100">
-
-
+	<canvas id="backgroundCanvas" class="absolute top-0 left-0 w-full h-full z-[-1]"></canvas>
 
 	
-    <div class="text-center p-8 max-w-2xl w-full my-20">
+   <div class="text-center p-8 max-w-2xl mx-auto my-20 md:my-[130px]">
 
-        <!-- Navn med linjer på hver side -->
-        <div class="flex items-center justify-center mb-4">
-            <div class="border-t border-black border-2 flex-grow mr-4 rounded-full"></div>
-            <h1 class="text-[20px] font-sans">Zarish Zara Karim</h1>
-            <div class="border-t border-black border-2 flex-grow ml-4 rounded-full"></div>
-        </div>
-        <!-- Portfolio titel -->
-        <div class="mb-6 mt-7">
-            <h2 class="text-6xl font-bold font-instru mb-8 italic">PORTFOLIO*</h2>
-        </div>
+    <!-- Navn med linjer på hver side -->
+    <div class="flex items-center justify-center mb-4 flex-wrap">
+        <div class="border-t border-black border-2 flex-grow mr-4 rounded-full"></div>
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-sans">Zarish Zara Karim</h1>
+        <div class="border-t border-black border-2 flex-grow ml-4 rounded-full"></div>
+    </div>
 
-        <!-- Ikoner med linjer på hver side -->
-        <div class="flex items-center justify-center mb-6">
-            <div class="border-t border-black border-2 flex-grow mr-4 rounded-full"></div>
-            <div class="flex space-x-4">
-                <a href="#" class="text-gray-500 hover:text-gray-700">
-                    <img src="/001-linkedin.svg" alt="LinkedIn" class="w-6 h-6">
-                </a>
-                <a href="#" class="text-gray-500 hover:text-gray-700">
-                    <img src="/003-github.svg" alt="GitHub" class="w-6 h-6">
-                </a>
-                <a href="mailto:zarishdk@gmail.com" class="text-gray-500 hover:text-gray-700">
-                    <img src="/002-email.svg" alt="Email" class="w-6 h-6">
-                </a>
-            </div>
-            <div class="border-t border-black border-2 flex-grow ml-4 rounded-full"></div>
+    <!-- Portfolio titel -->
+    <div class="mb-6 mt-7 md:mb-[2rem] md:mt-[2rem]">
+        <h2 class="text-[50px] md:text-[80px] lg:text-[99px] font-bold font-instru mb-8 italic">PORTFOLIO*</h2>
+    </div>
+
+    <!-- Ikoner med linjer på hver side -->
+    <div class="flex items-center justify-center mb-6 flex-wrap">
+        <div class="border-t border-black border-2 flex-grow mr-4 rounded-full"></div>
+        <div class="flex space-x-4">
+            <a href="#" class="text-gray-500 hover:text-gray-700">
+                <img src="/001-linkedin.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
+            <a href="#" class="text-gray-500 hover:text-gray-700">
+                <img src="/003-github.svg" alt="GitHub" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
+            <a href="mailto:zarishdk@gmail.com" class="text-gray-500 hover:text-gray-700">
+                <img src="/002-email.svg" alt="Email" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
         </div>
-       
-		<!-- Kategorier -->
-        <div class="flex justify-center space-x-4">
-            <div class="flex items-center">
-                <img src="star.png" alt="" class="w-5 h-5 mr-2">
-                <span>Grafisk Designer</span>
-            </div>
-            <div class="flex items-center">
-                  <img src="star.png" alt="" class="w-5 h-5 mr-2">
-                <span>UI/UX</span>
-            </div>
-            <div class="flex items-center">
-                   <img src="star.png" alt="" class="w-5 h-5 mr-2">
-                <span></span>
-            </div>
+        <div class="border-t border-black border-2 flex-grow ml-4 rounded-full"></div>
+    </div>
+
+    <!-- Kategorier -->
+    <div class="flex flex-wrap justify-center space-x-4">
+        <div class="flex items-center mb-2">
+            <img src="star.png" alt="" class="w-5 h-5 mr-2 pulse-scale md:w-8 md:h-8">
+            <span class="text-sm md:text-[25px]">Grafisk Designer</span>
+        </div>
+        <div class="flex items-center mb-2">
+            <img src="star.png" alt="" class="w-5 h-5 mr-3 pulse-scale md:w-8 md:h-8">
+            <span class="text-sm md:text-[25px]">UI/UX</span>
+        </div>
+        <div class="flex items-center mb-2">
+            <img src="star.png" alt="" class="w-5 h-5 mr-1 pulse-scale md:w-8 md:h-8">
+            <span class="text-sm md:text-base"></span>
         </div>
     </div>
+</div>
+
+
 </body>
 
   <Mig/>
   <Projekt/>
   <Boxe/>
 
+   <script>
+    const canvas = document.getElementById('backgroundCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: -10, // Start above the viewport
+        size: Math.random() * 5 + 1,
+        speedY: Math.random() * 3 + 1, // Speed downward
+        color: 'rgba(255, 255, 255, 0.8)',
+      };
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(particle => {
+        particle.y += particle.speedY;
+
+        if (particle.y > canvas.height) {
+          particle.y = -10; // Reset particle to top
+          particle.x = Math.random() * canvas.width;
+        }
+
+        ctx.fillStyle = particle.color;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      particles = particles.filter(particle => 
+        particle.y <= canvas.height
+      );
+
+      if (particles.length < 150) {
+        particles.push(createParticle());
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // Initialize
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animate();
+  </script>
 
 </MainLayout>
 
+
+
+<style>
+	@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+</style>
